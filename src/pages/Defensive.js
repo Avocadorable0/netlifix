@@ -9,7 +9,7 @@ function Defensive() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL || '/api';
+  const baseUrl = process.env.REACT_APP_API_BASE_URL || '';
 
   useEffect(() => {
     fetch(`${baseUrl}/defenseOverall`)

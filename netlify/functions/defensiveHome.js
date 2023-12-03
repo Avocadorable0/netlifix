@@ -1,5 +1,5 @@
 exports.handler = async (event, context) => {
-    const response = await fetch('https://ws-foot-stat.onrender.com/defensiveHome');
+    const response = await fetch('https://ws-foot-stat.onrender.com/defenseHome');
     const data = await response.json();
   
     return {
