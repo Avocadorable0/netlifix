@@ -5,15 +5,13 @@ import BasicTableOffensive from '../components/BasicTableOffensive';
 import React, { useState, useEffect } from 'react';
 
 function Offensive() {
+
   const [overallData, setOverallData] = useState([]);
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
-  const baseUrl = '';
-
-
   useEffect(() => {
-    fetch(`${baseUrl}/offensiveOverall`)
+    fetch('/offensiveOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -21,14 +19,14 @@ function Offensive() {
         return response.json();
       })
       .then(data => {
-        console.log('Offensive Overall data from API:', data);
+        console.log('Overall data from API:', data);
         setOverallData(data);
       })
-      .catch(error => console.error('Error fetching offensive overall data:', error));
-  }, [baseUrl]);
+      .catch(error => console.error('Error fetching overall data:', error));
+  }, []);
 
   useEffect(() => {
-    fetch(`${baseUrl}/offensiveHome`)
+    fetch('/offensiveHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -36,14 +34,14 @@ function Offensive() {
         return response.json();
       })
       .then(data => {
-        console.log('Offensive Home data from API:', data);
+        console.log('Home data from API:', data);
         setHomeData(data);
       })
-      .catch(error => console.error('Error fetching offensive home data:', error));
-  }, [baseUrl]);
-
+      .catch(error => console.error('Error fetching home data:', error));
+  }, []);
+  
   useEffect(() => {
-    fetch(`${baseUrl}/offensiveAway`)
+    fetch('/offensiveAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -51,29 +49,30 @@ function Offensive() {
         return response.json();
       })
       .then(data => {
-        console.log('Offensive Away data from API:', data);
+        console.log('Away data from API:', data);
         setAwayData(data);
       })
-      .catch(error => console.error('Error fetching offensive away data:', error));
-  }, [baseUrl]);
+      .catch(error => console.error('Error fetching away data:', error));
+  }, []);
+  
 
   return (
     <div className="App">
       <Header/>
       <div className='container'>
         <div className='row'>
-          <div className='table'>
-            <h3>Offensive Overall</h3>
-            <BasicTableOffensive data={overallData}/>
-          </div>
-          <div className='table'>
-            <h3>Offensive Home</h3>
-            <BasicTableOffensive data={homeData}/>
-          </div>
-          <div className='table'>
-            <h3>Offensive Away</h3>
-            <BasicTableOffensive data={awayData}/>
-          </div>
+            <div className='table'>
+                <h3>Offensive Overall</h3>
+                <BasicTableOffensive data={overallData}/>
+            </div>
+            <div className='table'>
+                <h3>Offensive Home</h3>
+                <BasicTableOffensive data={homeData}/>
+            </div>
+            <div className='table'>
+                <h3>Offensive Away</h3>
+                <BasicTableOffensive data={awayData}/>
+            </div>
         </div>
       </div>
       <Footer/>

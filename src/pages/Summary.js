@@ -9,11 +9,8 @@ function Summary() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
-  const baseUrl = '';
-
-
   useEffect(() => {
-    fetch(`${baseUrl}/summaryOverall`)
+    fetch('/summaryOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,10 +22,10 @@ function Summary() {
         setOverallData(data);
       })
       .catch(error => console.error('Error fetching overall data:', error));
-  }, [baseUrl]);
+  }, []);
 
   useEffect(() => {
-    fetch(`${baseUrl}/summaryHome`)
+    fetch('/summaryHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,10 +37,10 @@ function Summary() {
         setHomeData(data);
       })
       .catch(error => console.error('Error fetching home data:', error));
-  }, [baseUrl]);
+  }, []);
 
   useEffect(() => {
-    fetch(`${baseUrl}/summaryAway`)
+    fetch('/summaryAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -55,7 +52,8 @@ function Summary() {
         setAwayData(data);
       })
       .catch(error => console.error('Error fetching away data:', error));
-  }, [baseUrl]);
+  }, []);
+
 
   return (
     <div className="App">
@@ -82,3 +80,4 @@ function Summary() {
 }
 
 export default Summary;
+
