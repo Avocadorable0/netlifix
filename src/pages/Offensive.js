@@ -11,7 +11,7 @@ function Offensive() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('/offensiveOverall')
+    fetch('https://ws-foot-stat.onrender.com/offensiveOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -26,7 +26,7 @@ function Offensive() {
   }, []);
 
   useEffect(() => {
-    fetch('/offensiveHome')
+    fetch('https://ws-foot-stat.onrender.com/offensiveHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -41,7 +41,7 @@ function Offensive() {
   }, []);
   
   useEffect(() => {
-    fetch('/offensiveAway')
+    fetch('https://ws-foot-stat.onrender.com/offensiveAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
