@@ -10,7 +10,7 @@ function Summary() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryOverall', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/summaryOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryHome', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/summaryHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +40,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryAway', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/summaryAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
