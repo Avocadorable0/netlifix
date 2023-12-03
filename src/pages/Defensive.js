@@ -10,7 +10,7 @@ function Defensive() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('/api/defenseOverall', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/defenseOverall', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Defensive() {
   }, []);
   
   useEffect(() => {
-    fetch('/api/defenseAway', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/defenseAway', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +40,7 @@ function Defensive() {
   }, []);
 
   useEffect(() => {
-    fetch('/api/defenseAway', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/defenseAway', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);

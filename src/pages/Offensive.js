@@ -11,7 +11,7 @@ function Offensive() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('/api/offensiveOverall', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/offensiveOverall', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -26,7 +26,7 @@ function Offensive() {
   }, []);
 
   useEffect(() => {
-    fetch('/api/offensiveHome', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/offensiveHome', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -41,7 +41,7 @@ function Offensive() {
   }, []);
   
   useEffect(() => {
-    fetch('/api/offensiveAway', { mode: 'no-cors' })
+    fetch('https://ws-foot-stat.onrender.com/offensiveAway', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
