@@ -26,20 +26,17 @@ function Summary() {
 
   useEffect(() => {
     fetch('/api/summaryHome', { mode: 'no-cors' })
-    .then(response => {
-      if (!response.ok) {
-        if (response.type === 'opaque') {
-          console.error('Error: Response is opaque. CORS may be blocking the request.');
-        } else {
+      .then(response => {
+        if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Home data from API:', data);
-    })
-    .catch(error => console.error('Error fetching home data:', error));
+        return response.json();
+      })
+      .then(data => {
+        console.log('Overall data from API:', data);
+        setHomeData(data);
+      })
+      .catch(error => console.error('Error fetching overall data:', error));
   }, []);
 
   useEffect(() => {
