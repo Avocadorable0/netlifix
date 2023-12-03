@@ -9,7 +9,7 @@ function Summary() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL || '';
+  const baseUrl = process.env.REACT_APP_API_BASE_URL || '/api';
 
   useEffect(() => {
     fetch(`${baseUrl}/summaryOverall`)
