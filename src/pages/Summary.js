@@ -26,17 +26,20 @@ function Summary() {
 
   useEffect(() => {
     fetch('https://ws-foot-stat.onrender.com/summaryHome')
-      .then(response => {
-        if (!response.ok) {
+    .then(response => {
+      if (!response.ok) {
+        if (response.type === 'opaque') {
+          console.error('Error: Response is opaque. CORS may be blocking the request.');
+        } else {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Home data from API:', data);
-        setHomeData(data);
-      })
-      .catch(error => console.error('Error fetching home data:', error));
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Home data from API:', data);
+    })
+    .catch(error => console.error('Error fetching home data:', error));
   }, []);
 
   useEffect(() => {
