@@ -9,8 +9,9 @@ function Defensive() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
+  const url= process.env.URL_APP;
   useEffect(() => {
-    fetch('/defenseOverall')
+    fetch(`${url}/defenseOverall`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +26,7 @@ function Defensive() {
   }, []);
   
   useEffect(() => {
-    fetch('/defenseAway')
+    fetch(`${url}/defenseHome`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +41,7 @@ function Defensive() {
   }, []);
 
   useEffect(() => {
-    fetch('/defenseAway')
+    fetch(`${url}/defenseAway`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
