@@ -10,7 +10,7 @@ function Summary() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryOverall')
+    fetch('/api/summaryOverall', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryHome')
+    fetch('/api/summaryHome', { mode: 'no-cors' })
     .then(response => {
       if (!response.ok) {
         if (response.type === 'opaque') {
@@ -43,7 +43,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryAway')
+    fetch('/api/summaryAway', { mode: 'no-cors' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
