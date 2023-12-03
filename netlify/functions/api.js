@@ -1,10 +1,17 @@
 const fetch = require('node-fetch');
-const cors = require('cors')();
 
-exports.handler = async (event, context) => {
+exports.handler = async function (event, context) {
   try {
-    await cors(event, context);
-    const response = await fetch('https://ws-foot-stat.onrender.com/summaryOverall');
+    const baseUrl = 'https://ws-foot-stat.onrender.com';
+    const path = event.path.replace('/.netlify/functions/api', '');
+    const url = `${baseUrl}${path}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
     const data = await response.json();
 
     return {
@@ -16,7 +23,7 @@ exports.handler = async (event, context) => {
       },
     };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error:', error);
 
     return {
       statusCode: 500,
