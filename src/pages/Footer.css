@@ -1,0 +1,41 @@
+
+.footer {
+    background: linear-gradient(to bottom, #3498db, #022656);
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex: 1;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .logoname{
+    display: flex;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}

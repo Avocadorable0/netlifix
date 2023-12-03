@@ -1,0 +1,21 @@
+.TableContainer {
+    margin: 20px;
+    max-width: 1200px;
+  }
+  .Table {
+    max-width: 1150px;
+  }
+  .TableHeadCell {
+    font-weight: bold;
+    background-color: #ff4646;
+  }
+  .TableBodyCell {
+    text-align: center;
+  }
+  .TableRow:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .TableRow:hover {
+    background-color: #3498db;
+  }
+  
