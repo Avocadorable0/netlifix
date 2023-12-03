@@ -1,7 +1,19 @@
 [build]
   functions = "netlify/functions"
+  command = "npm run build"
+
 [[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/.netlify/functions/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200
   force = true
+
+[dev]
+  autoLaunch = false
+
+[build.environment]
+  NODE_VERSION = "14.x"
+  NPM_VERSION = "7.x"
+
+[build.bundledDependencies]
+  - node-fetch
