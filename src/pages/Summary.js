@@ -9,8 +9,10 @@ function Summary() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
+  const baseUrl = process.env.REACT_APP_API_BASE_URL || ''; // Use an empty string as default
+
   useEffect(() => {
-    fetch('/summaryOverall')
+    fetch(`${baseUrl}/summaryOverall`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -22,10 +24,10 @@ function Summary() {
         setOverallData(data);
       })
       .catch(error => console.error('Error fetching overall data:', error));
-  }, []);
+  }, [baseUrl]);
 
   useEffect(() => {
-    fetch('/summaryHome')
+    fetch(`${baseUrl}/summaryHome`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -37,10 +39,10 @@ function Summary() {
         setHomeData(data);
       })
       .catch(error => console.error('Error fetching home data:', error));
-  }, []);
+  }, [baseUrl]);
 
   useEffect(() => {
-    fetch('/summaryAway')
+    fetch(`${baseUrl}/summaryAway`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -52,8 +54,7 @@ function Summary() {
         setAwayData(data);
       })
       .catch(error => console.error('Error fetching away data:', error));
-  }, []);
-
+  }, [baseUrl]);
 
   return (
     <div className="App">
@@ -80,4 +81,3 @@ function Summary() {
 }
 
 export default Summary;
-
