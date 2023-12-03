@@ -9,7 +9,8 @@ function Offensive() {
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL || '/.netlify/functions/api';
+  const baseUrl = '';
+
 
   useEffect(() => {
     fetch(`${baseUrl}/offensiveOverall`)
