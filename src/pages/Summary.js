@@ -10,7 +10,7 @@ function Summary() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryOverall')
+    fetch('/summaryOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryHome')
+    fetch('/summaryHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +40,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/summaryAway')
+    fetch('/summaryAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
