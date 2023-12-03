@@ -8,9 +8,9 @@ function Summary() {
   const [overallData, setOverallData] = useState([]);
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
-  const url= process.env.URL_APP;
+
   useEffect(() => {
-    fetch(`${url}/summaryOverall`)
+    fetch('/summaryOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch(`${url}/summaryHome`)
+    fetch('/summaryHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +40,7 @@ function Summary() {
   }, []);
 
   useEffect(() => {
-    fetch(`${url}/summaryAway`)
+    fetch('/summaryAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);

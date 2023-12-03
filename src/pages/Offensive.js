@@ -9,9 +9,9 @@ function Offensive() {
   const [overallData, setOverallData] = useState([]);
   const [homeData, setHomeData] = useState([]);
   const [awayData, setAwayData] = useState([]);
-  const url= process.env.URL_APP;
+
   useEffect(() => {
-    fetch(`${url}/offensiveOverall`)
+    fetch('/offensiveOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -26,7 +26,7 @@ function Offensive() {
   }, []);
 
   useEffect(() => {
-    fetch(`${url}/offensiveHome`)
+    fetch('/offensiveHome')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -41,7 +41,7 @@ function Offensive() {
   }, []);
   
   useEffect(() => {
-    fetch(`${url}/offensiveAway`)
+    fetch('/offensiveAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
