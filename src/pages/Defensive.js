@@ -10,7 +10,7 @@ function Defensive() {
   const [awayData, setAwayData] = useState([]);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/defenseOverall')
+    fetch('https://ws-foot-stat-1.onrender.com/defenseOverall')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -25,7 +25,7 @@ function Defensive() {
   }, []);
   
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/defenseAway')
+    fetch('https://ws-foot-stat-1.onrender.com/defenseAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -40,7 +40,7 @@ function Defensive() {
   }, []);
 
   useEffect(() => {
-    fetch('https://ws-foot-stat.onrender.com/defenseAway')
+    fetch('https://ws-foot-stat-1.onrender.com/defenseAway')
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
